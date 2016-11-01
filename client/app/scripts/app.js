@@ -12,31 +12,39 @@ angular
   .module('clientApp', [
     'ngAnimate',
     'ngAria',
-    'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .run(function ($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+  })
+  .config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
+      .state('about', {
+        url: '/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/signup', {
+      .state('signup', {
+        url: '/signup',
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl',
         controllerAs: 'signup'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
-  });
+    $urlRouterProvider.otherwise('/');
+  }
+]);
