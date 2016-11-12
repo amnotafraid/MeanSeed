@@ -8,6 +8,8 @@ var developmentDb = 'mongodb://localhost/test';
 var productionDb = 'mongodb://localhost/test';
 var usedDb;
 
+mongoose.Promise = global.Promise;
+
 // If we're in development...
 if (process.env.NODE_ENV === 'development') {
     // set our database to the development one
