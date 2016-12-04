@@ -36,9 +36,9 @@ if (app.get('env') === 'development') {
 	// Error Handling
 	app.use(function(err, req, res, next) {
 		res.status(err.status || 500);
-		res.render('error', {
+		res.json({
 			message: err.message,
-			error: err
+			error: {}
 		});
 	});
 }
@@ -62,7 +62,7 @@ if (app.get('env') === 'production') {
 	// no stacktraces leaked to user
 	app.use(function(err, req, res, next) {
 		res.status(err.status || 500);
-		res.render('error', {
+		res.json({
 			message: err.message,
 			error: {}
 		});
