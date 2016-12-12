@@ -8,8 +8,7 @@ Some version info:
 node -v
 v6.0.0
 ```
-I
-f you have Node, Mongo, Bower, Compass, and Git installed on a Mac OSX computer, you can deploy the MeanSeed application as follows. These directions should work for a Windows environment with some modifications.
+If you have Node, Mongo, Bower, Compass, and Git installed on a Mac OSX computer, you can deploy the MeanSeed application as follows. These directions should work for a Windows environment with some modifications.
 
 First, clone the MeanSeed code. In the directory where you want the root, do a git clone. It will create a MeanSeed directory and get all the code inside that directory:
 ```
