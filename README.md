@@ -34,8 +34,6 @@ In the MeanSeed directory, you want a directory structure for your data that loo
      ├── db
      └── logs
 ```
-<a id="run"></a>
-##Run the code [top](#top)
 You can get that by going inside the MeanSeed directory and typing:
 ```
 mkdir -p data/db && mkdir data/logs
@@ -49,6 +47,8 @@ In the MeanSeed/server directory:
 ```
 npm install
 ```
+<a id="run"></a>
+##Run the code [top](#top)
 In the MeanSeed directory, start mongo with the following command:
 ```
 mongod --dbpath data/db/ --logpath data/logs/mongodb.log --logappend
