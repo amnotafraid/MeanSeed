@@ -48,5 +48,4 @@ Start the software in the server directory, MeanSeed/server:
 npm test
 ```
 Open up a browser at http://localhost:3000. You should see your app:
-file:///Users/razoyo-dev/Downloads/MeanSeed%20Front%20Page.png
-
+![meanseed front page](https://cloud.githubusercontent.com/assets/1727761/21093854/abdd6b3a-c019-11e6-9e5a-d17f72920dc6.png)
