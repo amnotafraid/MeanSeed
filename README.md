@@ -1,9 +1,14 @@
 #MeanSeed
-[Introduction](#intro)
-[Build the Code](#build)
-[Run the Code](#run)
-[Host the Code](#host)
+* [Introduction](#intro)
+
+* [Build the Code](#build)
+
+* [Run the Code](#run)
+
+* [Host the Code](#host)
+
 ##Introduction {#intro}
+
 While I was learning the MEAN stack, I worked through several tutorials. One tutorial that formed the basis for my development was [this one](https://www.gitbook.com/book/amnotafraid/i-mean-it/edit#) by J. Cole Morrison. He separated the client part, or the Angular part, from the server part, or the Node and Express part.
 
 ##Build the Code{#build}
