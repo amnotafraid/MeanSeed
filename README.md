@@ -1,7 +1,12 @@
 #MeanSeed
-
+[Introduction](#intro)
+[Build the Code](#build)
+[Run the Code](#run)
+[Host the Code](#host)
+##Introduction {#intro}
 While I was learning the MEAN stack, I worked through several tutorials. One tutorial that formed the basis for my development was [this one](https://www.gitbook.com/book/amnotafraid/i-mean-it/edit#) by J. Cole Morrison. He separated the client part, or the Angular part, from the server part, or the Node and Express part.
 
+##Build the Code{#build}
 Some version info:
 
 ```
@@ -20,6 +25,7 @@ In the MeanSeed directory, you want a directory structure for your data that loo
      ├── db
      └── logs
 ```
+##Run the code {#run}
 You can get that by going inside the MeanSeed directory and typing:
 ```
 mkdir -p data/db && mkdir data/logs
@@ -48,3 +54,7 @@ npm test
 ```
 Open up a browser at http://localhost:3000. You should see your app:
 ![meanseed front page](https://cloud.githubusercontent.com/assets/1727761/21093854/abdd6b3a-c019-11e6-9e5a-d17f72920dc6.png)
+
+##Host the code {#host}
+I have instruction on how to host this code [here](https://amnotafraid.gitbooks.io/i-mean-it/content/hosting_on_bitnami.html)
+
