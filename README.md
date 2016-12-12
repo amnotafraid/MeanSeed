@@ -66,6 +66,7 @@ Open up a browser at http://localhost:3000. You should see your app:
 
 <a id="front-page">
 </a> [top](#top)
+
 ![meanseed front page](https://cloud.githubusercontent.com/assets/1727761/21093854/abdd6b3a-c019-11e6-9e5a-d17f72920dc6.png)
 <a id="host"></a>
 ##Host the code [top](#top)
