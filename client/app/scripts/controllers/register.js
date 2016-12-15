@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('clientApp') // make sure this is set to whatever it is in your client/scripts/app.js
-  .controller('SignupCtrl', [
+  .controller('RegisterCtrl', [
     '$http',
     '$scope',
   function ($http, $scope) { // note the added $http depedency
@@ -9,13 +9,13 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
     $scope.user = {};
     
     // This is our method that will post to our server.
-    $scope.signupSubmit = function () {
-      console.log('signupSubmit');
+    $scope.registerSubmit = function () {
+      console.log('registerSubmit');
       console.log('user = ' + JSON.stringify($scope.user, null, 2));
       
       // make sure all fields are filled out...
       // aren't you glad you're not typing out
-      // $scope.signup.user.firstname everytime now??
+      // $scope.register.user.firstname everytime now??
       if (
         !$scope.user.firstname ||
         !$scope.user.lastname ||
@@ -37,7 +37,7 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
       console.log($scope.user);
 
       // Make the request to the server ... which doesn't exist just yet
-      var request = $http.post('/signup', $scope.user);
+      var request = $http.post('/register', $scope.user);
 
       // we'll come back to here and fill in more when ready
       request.success(function (data) {

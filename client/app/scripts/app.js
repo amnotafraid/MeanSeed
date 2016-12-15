@@ -41,11 +41,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .state('signup', {
-        url: '/signup',
-        templateUrl: 'views/signup.html',
-        controller: 'SignupCtrl',
-        controllerAs: 'signup'
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
       });
     $urlRouterProvider.otherwise('/');
   }

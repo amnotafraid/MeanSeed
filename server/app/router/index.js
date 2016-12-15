@@ -7,6 +7,6 @@ module.exports = function (
     app
     ) {
 
-  app.route('/signup')
-    .post(user.signup);
+  app.route('/register')
+    .post(user.register);
 };

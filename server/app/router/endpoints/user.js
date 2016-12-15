@@ -1,7 +1,7 @@
 var db          = require('../../database');
 var User				= db.user;
 
-exports.signup = function (req, res, next) {
+exports.register = function (req, res, next) {
   console.log(JSON.stringify(req.body, null, 2));
 
 	// Check to see if the user already exists
