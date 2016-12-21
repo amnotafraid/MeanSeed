@@ -41,6 +41,23 @@ userSchema.methods.validPassword = function (password) {
   return this.local.password === hash;
 };
 
+userSchema.methods.generateJWT = function () {
+
+  // set expiration to 1 day
+  var today = new Date();
+  var exp = new Date(today);
+  exp.setDate (today.getDate() + 1);
+  var obj = {
+    _id:          this._id,
+    firstname:    this.local.firstname,
+    lastname:     this.local.lastname,
+    exp:          parseInt(exp.getTime() / 1000)
+  };
+
+  return jwt.sign (obj,
+    'secret');
+};
+
 // The primary user model
 var User = mongoose.model('User', userSchema);
 

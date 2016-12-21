@@ -9,4 +9,7 @@ module.exports = function (
 
   app.route('/register')
     .post(user.register);
+
+  app.route('/login')
+    .post(user.login);
 };

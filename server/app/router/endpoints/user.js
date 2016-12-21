@@ -1,5 +1,24 @@
+var passport		= require('passport');
 var db          = require('../../database');
 var User				= db.user;
+
+exports.login = function (req, res, next) {
+  if (!req.body.email || !req.body.password) {
+    return res.status(400).json ({
+      message: 'Please fill out email and password'
+    });
+  }
+
+  passport.authenticate('local-login', function(err, user, info) {
+    if (err) return next(err); 
+
+    if (user) {
+      return res.json({token: user.generateJWT()});
+    } else {
+      return res.status(401).json(info);
+    }
+  })(req, res, next);
+};
 
 exports.register = function (req, res, next) {
   console.log(JSON.stringify(req.body, null, 2));

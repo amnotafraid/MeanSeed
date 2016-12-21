@@ -4,8 +4,10 @@
 var mongoose      = require('mongoose');
 var UserModel			= require('./schemas/user');
 
-var developmentDb = 'mongodb://localhost/test';
-var productionDb = 'mongodb://localhost/test';
+var developmentDb = 'mongodb://localhost/mean';
+var productionDb = 'mongodb://localhost/mean';
+
+var usedDb;
 var usedDb;
 
 mongoose.Promise = global.Promise;
