@@ -1,53 +1,44 @@
 /**
  * Our Schema for Users
  */
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var mongoose =    require('mongoose');
+var crypto =      require('crypto');
 var Schema = mongoose.Schema;
 
 // Define the User Schema
 var userSchema = new Schema({
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    profile: {} // for extra information you may / may not want
-});
-
-// A method that's called every time a user document is saved..
-userSchema.pre('save', function (next) {
-
-    var user = this;
-
-    // If the password hasn't been modified, move along...
-    if (!user.isModified('password')) {
-        return next();
+    email       : {
+      type      : String,
+      required  : true,
+      unique    : true
+    },
+    local       : {
+      firstname : String,
+      lastname  : String,
+      password  : String,
+      salt      : String
     }
-
-    // generate salt
-    bcrypt.genSalt(10, function(err, salt){
-
-        if (err) {
-            return next(err);
-        }
-
-        // create the hash and store it
-        bcrypt.hash(user.password, salt, function(err, hash){
-            if (err) {
-                return next(err);
-            }
-            user.password = hash;
-            next();
-        });
-    });
 });
 
-// Password verification helper
-userSchema.methods.comparePassword = function (triedPassword, cb) {
-    bcrypt.compare(triedPassword, this.password, function(err, isMatch) {
-        if(err) return cb(err);
-        cb(null, isMatch);
-    });
+userSchema.methods.setPassword = function (password) {
+  this.local.salt = crypto.randomBytes (16).toString('hex');
+  this.local.password = crypto.pbkdf2Sync 
+        (password,
+         this.local.salt,
+         1000,
+         64,
+         'sha1').toString('hex');
+};
+
+userSchema.methods.validPassword = function (password) {
+  var hash = crypto.pbkdf2Sync 
+        (password,
+         this.local.salt,
+         1000,
+         64,
+         'sha1').toString('hex');
+
+  return this.local.password === hash;
 };
 
 // The primary user model
