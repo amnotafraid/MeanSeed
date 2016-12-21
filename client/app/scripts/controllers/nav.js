@@ -17,11 +17,6 @@ angular.module('clientApp')
       $scope.logOut = function () {
         auth.logOut();
       };
-
-      $scope.logIn = function () {
-        auth.logIn($scope.user);
-      };  
-
     }
   ]);
 
