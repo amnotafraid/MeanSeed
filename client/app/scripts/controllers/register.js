@@ -1,52 +1,43 @@
 'use strict';
 
-angular.module('clientApp') // make sure this is set to whatever it is in your client/scripts/app.js
+angular.module('clientApp')
   .controller('RegisterCtrl', [
-    '$http',
+    'auth',
     '$scope',
-  function ($http, $scope) { // note the added $http depedency
+    '$state',
+    '$window',
+  function (auth, $scope, $state, $window) { 
 
     $scope.user = {};
     
     // This is our method that will post to our server.
     $scope.registerSubmit = function () {
-      console.log('registerSubmit');
-      console.log('user = ' + JSON.stringify($scope.user, null, 2));
       
       // make sure all fields are filled out...
-      // aren't you glad you're not typing out
-      // $scope.register.user.firstname everytime now??
       if (
-        !$scope.user.firstname ||
-        !$scope.user.lastname ||
+        !$scope.user.local.firstname ||
+        !$scope.user.local.lastname ||
         !$scope.user.email ||
-        !$scope.user.password1 ||
+        !$scope.user.password ||
         !$scope.user.password2
       ) {
-//        alert('Please fill out all form fields.');
+        $window.alert('Please fill out all form fields.');
         return false;
       }
 
       // make sure the passwords match match
-      if ($scope.user.password1 !== $scope.user.password2) {
-//        alert('Your passwords must match.');
+      if ($scope.user.password !== $scope.user.password2) {
+        $window.alert('Your passwords must match.');
         return false;
       }
 
-      // Just so we can confirm that the bindings are working
-      console.log($scope.user);
-
-      // Make the request to the server ... which doesn't exist just yet
-      var request = $http.post('/register', $scope.user);
-
-      // we'll come back to here and fill in more when ready
-      request.success(function (data) {
-        console.log(data);
-      });
-
-      request.error(function (data) {
-        console.log(data);
-      });
+      auth.register($scope.user) 
+        .error (function(error) {
+          $window.alert(error.message);
+        })
+        .then (function () {
+          $state.go('home');
+        });
 
     };
     

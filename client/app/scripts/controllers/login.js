@@ -4,17 +4,20 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
   .controller('LoginCtrl', [
     'auth',
     '$scope',
+    '$state',
     '$window',
-  function (auth, $scope, $window) {
+  function (auth, $scope, $state, $window) {
 
-    $scope.user = { 
-      firstName: 'Bugs',
-      lastName: 'Bunny'
-    };  
+    $scope.user = {};
     
     // This is our method that will post to our server.
-    $scope.loginSubmit = function () {
-      auth.logIn($scope.user);
+    $scope.logIn = function() {
+      auth.logIn($scope.user).error(function(error){
+        $window.alert(error.message);
+      }).then(function(){
+        $state.go('home');
+      });
+
     };
     
   }]);

@@ -21,7 +21,11 @@ exports.login = function (req, res, next) {
 };
 
 exports.register = function (req, res, next) {
-  console.log(JSON.stringify(req.body, null, 2));
+  if (!req.body.email || !req.body.password) {
+    return res.status(400).json({
+      message: 'Please fill out all fields'
+    });
+  }
 
 	// Check to see if the user already exists
 	// using their email address
@@ -30,35 +34,30 @@ exports.register = function (req, res, next) {
 	}, function (err, user) {
 
 		// If there's an error, log it and return to user
-		if (err) {
-			console.log('Couldn\'t create new user because of: ' + err);
-			// send the error
-			res.status(500).json({
-				'message': 'Internal server error from signing up new user.'
-			});
-		}
+		if (err) return next(err);
+
 		// If the user doesn't exist, create one
 		if (!user) {
 			// setup the new user
 			var newUser = new User({
-				firstname: req.body.firstname,
-				lastname: req.body.lastname,
 				email: req.body.email,
-				password: req.body.password1
+        local: {
+          firstname: req.body.local.firstname,
+          lastname: req.body.local.lastname
+        }
 			});
 
+      newUser.setPassword(req.body.password);
+ 
 			// save the user to the database
 			newUser.save(function (err, savedUser, numberAffected) {
-				if (err) {
-					console.log('Problem saving the user due to ' + err);
-					res.status(500).json({
-						'message': 'Database error trying to sign up.'
-					});
-				}
+				if (err) return next(err);
 
-				res.status(201).json({
-					'message': 'Successfully created new user'
-				});
+        var returnObj = {};
+
+        returnObj.token = savedUser.generateJWT();
+
+				res.status(200).json({token: savedUser.generateJWT()});
 			});
 		}
 
