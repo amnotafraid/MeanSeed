@@ -43,9 +43,11 @@ function Auth($http, $state, $window) {
   this.register = function (user) {
     return $http.post ('/register', user)
       .success (function (data) {
+        console.log(data.token);
         _this.saveToken (data.token);
       })
       .error (function (data, status) {
+        console.log(data.message);
         _this.error = data.message;
       });
   };

@@ -15,6 +15,7 @@ angular.module('clientApp')
       
       // make sure all fields are filled out...
       if (
+        !$scope.user.local ||
         !$scope.user.local.firstname ||
         !$scope.user.local.lastname ||
         !$scope.user.email ||
