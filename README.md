@@ -15,7 +15,12 @@
 
 While I was learning the MEAN stack, I worked through several tutorials. One tutorial that formed the basis for my development was [this one](https://www.gitbook.com/book/amnotafraid/i-mean-it/edit#) by J. Cole Morrison. He separated the client part, or the Angular part, from the server part, or the Node and Express part.
 
-What does this application do?  Not much.  There is a form to register a user.  The submit will encrypt the password and put it in a user database.
+The master branch of MeanSeed is like a foundation on which I can build other applications.
+
+What does this branch do?  Not much.  If you were to get it out, build it, and execute it, you could find a registrations form to fill out.  Clicking submit on the form will save the user information in a database and encrypt the password.
+
+I am writing a [book](https://www.gitbook.com/book/amnotafraid/i-mean-it/details) about adventures in developing on this foundation.  Other branches of this repository are development steps that I mention in the book.
+
 <a id="build"></a>
 ##Build the Code [top](#top)
 Some version info:
