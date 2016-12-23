@@ -28,6 +28,15 @@ Some version info:
 ```
 node -v
 v6.0.0
+mongo --version
+MongoDB shell version: 3.2.0
+/**
+ * @license AngularJS v1.6.0
+ * (c) 2010-2016 Google, Inc. http://angularjs.org
+ * License: MIT
+ */
+ npm -v express
+3.8.6
 ```
 If you have Node, Mongo, Bower, Compass, and Git installed on a Mac OSX computer, you can deploy the MeanSeed application as follows. These directions should work for a Windows environment with some modifications.
 
