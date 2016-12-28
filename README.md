@@ -31,7 +31,7 @@ v6.0.0
 mongo --version
 MongoDB shell version: 3.2.0
 /**
- * @license AngularJS v1.6.0
+ * @license AngularJS v1.5.8
  * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
