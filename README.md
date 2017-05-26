@@ -1,5 +1,5 @@
 <a id="top"></a>
-#MeanSeed
+# MeanSeed
 * [Introduction](#intro)
 
 * [Build the Code](#build)
@@ -11,7 +11,7 @@
 * [Host the Code](#host)
 
 <a id="intro"></a>
-##Introduction [top](#top)
+## Introduction [top](#top)
 
 While I was learning the MEAN stack, I worked through several tutorials. One tutorial that formed the basis for my development was [this one](https://www.gitbook.com/book/amnotafraid/i-mean-it/edit#) by J. Cole Morrison. He separated the client part, or the Angular part, from the server part, or the Node and Express part.
 
@@ -22,7 +22,7 @@ What does this branch do?  Not much.  If you were to get it out, build it, and e
 I am writing a [book](https://www.gitbook.com/book/amnotafraid/i-mean-it/details) about adventures in developing on this foundation.  Other branches of this repository are development steps that I mention in the book.
 
 <a id="build"></a>
-##Build the Code [top](#top)
+## Build the Code [top](#top)
 Some version info:
 
 ```
@@ -64,7 +64,7 @@ In the MeanSeed/server directory:
 npm install
 ```
 <a id="run"></a>
-##Run the code [top](#top)
+## Run the code [top](#top)
 In the MeanSeed directory, start mongo with the following command:
 ```
 mongod --dbpath data/db/ --logpath data/logs/mongodb.log --logappend
@@ -80,8 +80,7 @@ npm test
 ```
 Open up a browser at http://localhost:3000. You should see your app:
 
-<a id="front-page">
-##</a> [top](#top)
+<a id="front-page"></a> [top](#top)
 
 ![meanseed front page](https://cloud.githubusercontent.com/assets/1727761/21093854/abdd6b3a-c019-11e6-9e5a-d17f72920dc6.png)
 <a id="host"></a>
